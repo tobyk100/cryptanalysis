@@ -50,6 +50,7 @@ doubles = filter(lambda ((x, y), _): x == y, ngram(2, final_text).items())
 doubles = sorted(doubles, key=operator.itemgetter(1), reverse=True)
 
 deciphered = [final_blocks[i::20] for i in range(20)]
+deciphered[19].append(deciphered[0].pop())  # Fixes edge case
 
 for line in deciphered:
     print line
